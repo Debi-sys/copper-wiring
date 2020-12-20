@@ -34,7 +34,11 @@ client.on('message', (message) => {
         message.channel.send('<@177396438576136192>')	
         if (message.content.toLowerCase().includes('はい'))
         message.channel.send('fucking weeb')
-
+     if (message.content === '!astro-events') {
+            
+          message.channel.send('Current astronomical events: on 21st, saturn and jupiter will be very near each other, find a tall point and look south west (northern hemisphere) or south (southern hemisphere)');
+        }
+    
     
  })
     
