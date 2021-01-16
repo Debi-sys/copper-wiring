@@ -19,6 +19,21 @@ function say(robot, mess, args) {
     mess.channel.send(args);
 }
 
+function nigger(robot, mess, args) {
+    if (mess.channel.id === '767942198896492615') {
+        mess.channel.send('https://cdn.discordapp.com/attachments/723736586445127700/747796652378554398/1592679869688.png')
+        mess.channel.send('https://cdn.discordapp.com/attachments/723736586445127700/747796681944465468/1592679937608.png')
+        mess.channel.send('https://cdn.discordapp.com/attachments/716706744562090044/747804632478122025/merge_from_ofoct2.png')
+        mess.channel.send('https://cdn.discordapp.com/attachments/723736586445127700/747796729759268954/1592680077515.png')
+        mess.channel.send('https://cdn.discordapp.com/attachments/723736586445127700/747796744661893170/1592680246096.png')
+    }
+    else {
+        mess.channel.send('NIGGER');
+        mess.channel.send('now try it in <#767942198896492615> <:troll:789354323263488010>');
+    }
+}
+
+
 var comms_list = [
     {
         name: "astro-events",
@@ -34,6 +49,11 @@ var comms_list = [
         name: "say",
         out: say,
         about: "bot says your message"
+    },
+    {
+        name: "nigger",
+        out: nigger,
+        about: "best command"
     }
 ];
 
