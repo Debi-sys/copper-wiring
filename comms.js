@@ -34,15 +34,19 @@ function nigger(robot, mess, args) {
 }
 
 function roles(robot, mess, args) {
-    mess.channel.send('Roles with 0 members');
-    mess.guild.roles.fetch()
-        .then(roles => roles.cache
+    if (mess.channel.id === '767942198896492615') {
+        mess.guild.members.fetch();
+        mess.channel.send('Roles with low members');
+        mess.guild.fetch()
+            .then(guild => guild.roles.cache
             .each(role => {
-                if (role.members.size === 0) {
-                    mess.channel.send(`${role}.`)
+                let memberCount = mess.guild.roles.resolve(role.id).members.size;
+                if (memberCount < 5) {
+                    mess.channel.send(`There are ${memberCount} members in ${role.name}.`)
                 }
             }
                 ));
+        }
 }
 
 
@@ -69,7 +73,7 @@ var comms_list = [
         about: "best command"
     },
     {
-        name: "roles",
+        name: "zeroroles",
         out: roles,
         about: "Find roles with 0 members"
     }
