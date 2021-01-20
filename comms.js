@@ -33,6 +33,19 @@ function nigger(robot, mess, args) {
     }
 }
 
+function roles(robot, mess, args) {
+    mess.channel.send('Roles with 0 members');
+    mess.guild.roles.fetch()
+        .then(roles => roles.cache
+            .each(role => {
+                if (role.members.size === 0) {
+                    mess.channel.send(`${role}.`)
+                }
+            }
+                ));
+}
+
+
 
 var comms_list = [
     {
@@ -54,6 +67,11 @@ var comms_list = [
         name: "nigger",
         out: nigger,
         about: "best command"
+    },
+    {
+        name: "roles",
+        out: roles,
+        about: "Find roles with 0 members"
     }
 ];
 
