@@ -6,6 +6,7 @@ const intents = new Intents([
 ]);
 const client = new Client({ ws: { intents } });
 const comms = require("./comms.js");
+const verses = require("./verses.js");
 let prefix = "!";
 //config was not included in git
 //let prefix = config.prefix;
@@ -41,6 +42,11 @@ client.on('message', (message) => {
     //this avoids bot reacting to itself
     if (message.author.username != client.user.username && message.author.discriminator != client.user.discriminator) 
     {
+        if (message.author.id === '474335891159121920') {
+        if (message.content === 'hello fellow whites') {
+            message.channel.send('https://media.discordapp.net/attachments/767940723890323458/801854114132000798/image0.gif');
+        } 
+    }
 
         //one line messages
         var lowerCaseMessage = message.content.toLowerCase();
@@ -66,6 +72,37 @@ client.on('message', (message) => {
             comms.comms[comm_count].out(client, message, messArr);
             }
         }
+
+        //verses
+        var verse = message.content.trim() + " ";
+        var Ted = verse.slice(0, comm.indexOf(" "));
+        if (Ted.toLowerCase() === 'ted') {
+            var messArr = comm.split(" ");
+            if (messArr.length > 2) {
+                //message.channel.send(messArr[1]);
+                var V = parseInt(messArr[1], 10);
+                if (!isNaN(V)) {
+                    if (0 < V && V < 233) {
+                        V -=1;
+                        message.channel.send({embed: {
+                            color: 3447003,
+                            author: {
+                            name: 'Theodore John Kaczynski',
+                            icon_url: client.user.avatarURL
+                            },
+                            title: "Industrial Society and its Future",
+                            description: verses.verses[V],
+                            timestamp: new Date(),
+                            footer: {
+                            icon_url: client.user.avatarURL,
+                            text: "© Copper Wiring"
+                            }
+                      }
+                    });
+                }
+                }
+            }
+            }
 
         //full equal messages - will make map later
         if (message.content === 'gay')   
